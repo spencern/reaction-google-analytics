@@ -4,7 +4,7 @@ Package.describe({
 
 Package.on_use(function (api, where) {
   api.use([
-    "reaction-commerce",
+    "reaction-core",
     "standard-app-packages",
     "coffeescript",
     "simple-schema",
