@@ -1,6 +1,6 @@
 # Google Analytics - Reaction Package
 
-The is the Google Analytics module for Reaction Commerce.
+This is the Google Analytics module for Reaction Commerce.
 
 Example use:
 
