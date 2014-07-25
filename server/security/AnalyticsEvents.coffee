@@ -1,12 +1,12 @@
 share.AnalyticsEvents.allow
   insert: (userId, analyticsEvent) ->
-    analyticsEvent.shopId = Meteor.app.getCurrentShop()._id;
-    true
+    analyticsEvent.shopId = Meteor.app.getShopId()
+    return true
   update: (userId, analyticsEvent, fields, modifier) ->
     if modifier.$set && modifier.$set.shopId
       return false
-    true
+    return true
   remove: (userId, analyticsEvent) ->
     if analyticsEvent.shopId != Meteor.app.getCurrentShop()._id
       return false
-    true
+    return true
