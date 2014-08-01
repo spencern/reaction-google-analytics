@@ -1,1 +1,1 @@
-share.AnalyticsEvents = AnalyticsEvents = new Meteor.Collection("AnalyticsEvents")
+ReactionCore.Collections.AnalyticsEvents = new Meteor.Collection "AnalyticsEvents"

@@ -1,7 +1,7 @@
 Meteor.startup ->
   Deps.autorun ->
-    config = Packages.findOne name: "reaction-google-analytics"
-    if !config
+    config = ReactionCore.Collections.Packages.findOne name: "reaction-google-analytics"
+    if !config or !config.enabled
       # data not loaded yet or package is disabled
       Alerts.removeType "ga-not-configured"
       return
@@ -15,6 +15,9 @@ Meteor.startup ->
           dismissable: false # no close button
           html: true
           sticky: true # won't be removed by calls to Alerts.removeSeen(); must manually remove with Alerts.removeType("ga-not-configured")
+    else
+      # If admin logged out, hide the alert
+      Alerts.removeType "ga-not-configured"
 
   $(document.body).click (e) ->
     $targets = $(e.target).closest("*[data-event-action]")
@@ -27,4 +30,4 @@ Meteor.startup ->
         label: $element.data("event-label")
         value: $element.data("event-value")
       ga("send", "event", analyticsEvent.category, analyticsEvent.action, analyticsEvent.label, analyticsEvent.value)
-      share.AnalyticsEvents.insert(analyticsEvent)
+      ReactionCore.Collections.AnalyticsEvents.insert analyticsEvent

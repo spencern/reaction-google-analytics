@@ -4,7 +4,7 @@ SettingsFormSchema = new SimpleSchema
 
 Template.googleAnalytics.helpers
   packageConfig: ->
-    return Packages.findOne name: "reaction-google-analytics"
+    return ReactionCore.Collections.Packages.findOne name: "reaction-google-analytics"
   formSchema: ->
     return SettingsFormSchema
 
