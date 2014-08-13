@@ -1,3 +1,2 @@
-Meteor.publish("AnalyticsEvents", () ->
-  share.AnalyticsEvents.find({shopId: Meteor.app.getCurrentShop(this)._id});
-)
+Meteor.publish "AnalyticsEvents", ->
+  return ReactionCore.Collections.AnalyticsEvents.find shopId: ReactionCore.getShopId(@)

@@ -1,12 +1,18 @@
+SettingsFormSchema = new SimpleSchema
+  property:
+    type: String
+
 Template.googleAnalytics.helpers
-  packageConfig: () ->
-    Packages.findOne({name: "reaction-google-analytics"})
+  packageConfig: ->
+    return ReactionCore.Collections.Packages.findOne name: "reaction-google-analytics"
+  formSchema: ->
+    return SettingsFormSchema
 
 AutoForm.hooks gaSettingsForm:
   onSuccess: (operation, result, template) ->
-    Alerts.removeSeen()
-    Alerts.add "Google Analytics settings saved.", "success"
+    Alerts.removeType "ga-not-configured"
+    Alerts.add "Google Analytics settings saved.", "success", type: "ga-settings"
 
   onError: (operation, error, template) ->
-    Alerts.removeSeen()
-    Alerts.add "Google Analytics update failed. " + error, "danger"
+    msg = error.message || error.reason || "Unknown error"
+    Alerts.add "Google Analytics update failed: " + msg, "danger", type: "ga-settings"

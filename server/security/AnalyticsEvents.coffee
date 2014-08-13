@@ -1,12 +1,12 @@
-share.AnalyticsEvents.allow
+ReactionCore.Collections.AnalyticsEvents.allow
   insert: (userId, analyticsEvent) ->
-    analyticsEvent.shopId = Meteor.app.getCurrentShop()._id;
-    true
+    analyticsEvent.shopId = ReactionCore.getShopId()
+    return true
   update: (userId, analyticsEvent, fields, modifier) ->
     if modifier.$set && modifier.$set.shopId
       return false
-    true
+    return true
   remove: (userId, analyticsEvent) ->
-    if analyticsEvent.shopId != Meteor.app.getCurrentShop()._id
+    if analyticsEvent.shopId != ReactionCore.getShopId()
       return false
-    true
+    return true

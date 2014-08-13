@@ -15,10 +15,10 @@ Package.on_use(function (api, where) {
   ], ["client", "server"]);
 
   api.add_files([
+    "common/register.coffee",
     "common/collections.coffee"
   ], ["client", "server"]);
   api.add_files([
-    "client/register.coffee",
     "client/compatibility/google-analytics-bootstrap.js",
     "client/routing.coffee",
     "client/startup.coffee",
