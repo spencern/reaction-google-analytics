@@ -1,0 +1,13 @@
+{
+  "name": "reaction-google-analytics",
+  "description": "Google Analytics for Reaction Commerce",
+  "homepage": "https://github.com/ongoworks/reaction-google-analytics",
+  "author": "Aaron Judd (http://ongoworks.com",
+  "version": "0.1.2",
+  "git": "https://github.com/ongoworks/reaction-google-analytics.git",
+  "packages": {
+    "reaction-core": {
+      "git": "https://github.com/ongoworks/reaction-core.git"
+    }
+  }
+}
