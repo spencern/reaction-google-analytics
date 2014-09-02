@@ -1,20 +1,16 @@
 Package.describe({
   summary: "Reaction Google Analytics - GA for Reaction Commece",
-  name: "ongoworks:reaction-google-analytics",
+  name: "reactioncommerce:reaction-google-analytics",
   version: "0.1.1",
   git: "https://github.com/ongoworks/reaction-google-analytics.git"
 });
 
 Package.on_use(function (api, where) {
   api.use([
-    "reaction-core",
     "standard-app-packages",
     "coffeescript",
-    "simple-schema",
-    "collection2",
-    "autoform",
     "less",
-    "iron-router"
+    "reactioncommerce:core",
   ], ["client", "server"]);
 
   api.add_files([
