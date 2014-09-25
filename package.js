@@ -6,11 +6,12 @@ Package.describe({
 });
 
 Package.on_use(function (api, where) {
+  api.versionsFrom('METEOR@0.9.0');
   api.use([
     "standard-app-packages",
     "coffeescript",
     "less",
-    "reactioncommerce:core",
+    "reactioncommerce:core@0.1.6",
   ], ["client", "server"]);
 
   api.add_files([
