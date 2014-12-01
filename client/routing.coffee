@@ -5,4 +5,7 @@ Router.map ->
     template: 'googleAnalytics'
 
 Router.onAfterAction ->
-  ga("send", "pageview", IronLocation.get().pathname)
+  try
+    return ga("send", "pageview", Router.current().route.getName() ) #post iron:router 1.0.3
+  catch
+    return ga("send", "pageview", IronLocation.get().pathname )
