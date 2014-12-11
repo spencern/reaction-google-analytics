@@ -7,12 +7,10 @@ Package.describe({
 
 Package.on_use(function (api, where) {
   api.versionsFrom('METEOR@0.9.0');
-  api.use([
-    "standard-app-packages",
-    "coffeescript",
-    "less",
-    "reactioncommerce:core@0.2.1",
-  ], ["client", "server"]);
+  api.use("meteor-platform");
+  api.use("coffeescript");
+  api.use("less");
+  api.use("reactioncommerce:core@0.2.2");
 
   api.add_files([
     "common/register.coffee",
