@@ -12,4 +12,4 @@ Meteor.startup ->
     {$set: {property: prop}},
     (error, result) ->
       if result > 0
-        console.log "Added google analytics fixture data:", prop
+        ReactionCore.Events.info "Added google analytics fixture data:", prop
