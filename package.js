@@ -1,18 +1,16 @@
 Package.describe({
   summary: "Reaction Google Analytics - GA for Reaction Commece",
   name: "reactioncommerce:reaction-google-analytics",
-  version: "0.1.1",
+  version: "0.1.2",
   git: "https://github.com/ongoworks/reaction-google-analytics.git"
 });
 
 Package.on_use(function (api, where) {
   api.versionsFrom('METEOR@0.9.0');
-  api.use([
-    "standard-app-packages",
-    "coffeescript",
-    "less",
-    "reactioncommerce:core@0.1.6",
-  ], ["client", "server"]);
+  api.use("meteor-platform");
+  api.use("coffeescript");
+  api.use("less");
+  api.use("reactioncommerce:core@0.2.2");
 
   api.add_files([
     "common/register.coffee",
