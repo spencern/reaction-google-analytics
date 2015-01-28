@@ -7,7 +7,7 @@ ReactionCore.registerPackage
   settingsRoute: "dashboard/settings/google"
   hasWidget: false
   priority: "4"
-  autoEnable: true
+  hasWidget: true
   shopPermissions: [
     {
       label: "Google Analytics"
