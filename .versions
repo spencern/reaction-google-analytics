@@ -94,8 +94,8 @@ raix:eventemitter@0.1.1
 raix:ui-dropped-event@0.0.7
 random@1.0.2
 reactioncommerce:core@0.3.0
-reactioncommerce:core-theme@1.0.6
-reactioncommerce:reaction-google-analytics@0.2.0
+reactioncommerce:core-theme@1.1.0
+reactioncommerce:reaction-google-analytics@0.2.1
 reactive-dict@1.0.5
 reactive-var@1.0.4
 reload@1.1.2
