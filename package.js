@@ -10,21 +10,21 @@ Package.on_use(function (api, where) {
   api.use("meteor-platform@1.2.1");
   api.use("coffeescript");
   api.use("less");
-  api.use("reactioncommerce:core@0.4.0");
+  api.use("reactioncommerce:core@0.4.1");
 
-  api.add_files([
+  api.addFiles([
     "common/routing.coffee",
     "common/collections.coffee"
   ], ["client", "server"]);
 
-  api.add_files([
+  api.addFiles([
     "client/compatibility/google-analytics-bootstrap.js",
     "client/startup.coffee",
     "client/templates/googleAnalytics/googleAnalytics.html",
     "client/templates/googleAnalytics/googleAnalytics.coffee"
   ], ["client"]);
 
-  api.add_files([
+  api.addFiles([
     "server/security/AnalyticsEvents.coffee",
     "server/publications.coffee",
     "server/fixtures.coffee",
