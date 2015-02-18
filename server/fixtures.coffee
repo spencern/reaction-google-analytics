@@ -2,9 +2,16 @@
 # Fixture - we always want a record
 ###
 Packages = ReactionCore.Collections.Packages
+
 Meteor.startup ->
+  # set browser policy
+  BrowserPolicy.content.allowOriginForAll("http://www.google-analytics.com")
+  BrowserPolicy.content.allowOriginForAll("https://www.google-analytics.com")
+
+  # fixtures
   prop = Meteor.settings?.googleAnalyticsProperty
   return unless prop
+
   # XXX can we load stuff from Meteor.settings in core, perhaps by using a defined syntax such as
   # Meteor.settings.pkgName = config
   # Also, can `property` be merged with `settings`?
