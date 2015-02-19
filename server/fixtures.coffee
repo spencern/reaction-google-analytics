@@ -5,8 +5,7 @@ Packages = ReactionCore.Collections.Packages
 
 Meteor.startup ->
   # set browser policy
-  BrowserPolicy.content.allowOriginForAll("http://www.google-analytics.com")
-  BrowserPolicy.content.allowOriginForAll("https://www.google-analytics.com")
+  BrowserPolicy.content.allowOriginForAll("www.google-analytics.com")
 
   # fixtures
   prop = Meteor.settings?.googleAnalyticsProperty
