@@ -2,8 +2,7 @@ ReactionCore.registerPackage
   name: 'reaction-google-analytics' # usually same as meteor package
   autoEnable: false # auto-enable in dashboard
   settings: # private package settings config (blackbox)
-    mode: false
-    api_key: ""
+    api_key: "" # Tracking ID
   registry: [
     # all options except route and template
     # are used to describe the
@@ -11,17 +10,17 @@ ReactionCore.registerPackage
     {
       provides: 'dashboard'
       label: 'Google Analytics'
-      description: "Event tracking with Google Analytics"
+      description: "Event tracking and analytics with Google Analytics"
       icon: "fa fa-bar-chart-o" # glyphicon/fa
-      cycle: '2' # Core, Stable, Testing (currently testing)
-      container: 'analytics'  #group this with settings
+      cycle: '3' # Core, Stable, Testing (currently testing)
+      container: 'dashboard'  #group this with settings
     }
     # configures settings link for app card
     # use 'group' to link to dashboard card
     {
-      route: 'dashboard/settings/google'
+      route: 'googleAnalytics'
       provides: 'settings'
-      container: 'analytics'
+      container: 'dashboard'
     }
   ]
   # array of permission objects

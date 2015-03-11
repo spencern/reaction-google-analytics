@@ -26,8 +26,8 @@ Package.on_use(function (api, where) {
 
   api.addFiles([
     "server/security/AnalyticsEvents.coffee",
+    "server/security/browserPolicy.coffee",
     "server/publications.coffee",
-    "server/fixtures.coffee",
     "server/register.coffee"
   ], ["server"]);
 });

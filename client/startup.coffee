@@ -5,12 +5,12 @@ Meteor.startup ->
       # data not loaded yet or package is disabled
       Alerts.removeType "ga-not-configured"
       return
-    if config.property && config.property != "__KEY__"
-      ga("create", config.property, "auto")
+    if config.settings.api_key && config.settings.api_key != "__KEY__"
+      ga("create", config.settings.api_key, "auto")
       return
     if Roles.userIsInRole(Meteor.user(), "admin")
       _.defer ->
-        Alerts.add 'Google Analytics Property is not configured. <a href="/dashboard/settings/google">Configure now</a> or <a href="/dashboard">disable the Google Analytics package</a>.', "danger",
+        Alerts.add 'Google Analytics Property is not configured. <a href="/dashboard/settings/googleAnalytics">Configure now</a> or <a href="/dashboard">disable the Google Analytics package</a>.', "danger",
           type: "ga-not-configured"
           dismissable: false # no close button
           html: true
