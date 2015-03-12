@@ -1,8 +1,8 @@
 ReactionCore.registerPackage
-  name: 'reaction-google-analytics' # usually same as meteor package
-  autoEnable: false # auto-enable in dashboard
+  name: 'reaction-google-analytics'
+  autoEnable: false
   settings: # private package settings config (blackbox)
-    api_key: "" # Tracking ID
+    api_key: "" # Tracking ID - using api_key to maintain compatability
   registry: [
     # all options except route and template
     # are used to describe the

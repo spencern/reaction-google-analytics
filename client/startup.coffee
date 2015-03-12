@@ -1,12 +1,12 @@
 Meteor.startup ->
   Deps.autorun ->
-    config = ReactionCore.Collections.Packages.findOne name: "reaction-google-analytics"
-    if !config or !config.enabled
+    gAnalytics = ReactionCore.Collections.Packages.findOne name: "reaction-google-analytics"
+    if !gAnalytics or !gAnalytics.enabled
       # data not loaded yet or package is disabled
       Alerts.removeType "ga-not-configured"
       return
-    if config.settings.api_key && config.settings.api_key != "__KEY__"
-      ga("create", config.settings.api_key, "auto")
+    if gAnalytics.settings.api_key
+      ga("create", gAnalytics.settings.api_key, "auto")
       return
     if Roles.userIsInRole(Meteor.user(), "admin")
       _.defer ->
