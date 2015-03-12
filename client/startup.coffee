@@ -19,6 +19,7 @@ Meteor.startup ->
       # If admin logged out, hide the alert
       Alerts.removeType "ga-not-configured"
 
+  # Need to make this more specific. Currently it triggers for any click on any page.
   $(document.body).click (e) ->
     $targets = $(e.target).closest("*[data-event-action]")
     $targets = $targets.parents("*[data-event-action]").add($targets)
