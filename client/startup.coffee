@@ -1,16 +1,16 @@
 Meteor.startup ->
   Deps.autorun ->
-    config = ReactionCore.Collections.Packages.findOne name: "reaction-google-analytics"
-    if !config or !config.enabled
+    gAnalytics = ReactionCore.Collections.Packages.findOne name: "reaction-google-analytics"
+    if !gAnalytics or !gAnalytics.enabled
       # data not loaded yet or package is disabled
       Alerts.removeType "ga-not-configured"
       return
-    if config.property && config.property != "__KEY__"
-      ga("create", config.property, "auto")
+    if gAnalytics.settings.api_key
+      ga("create", gAnalytics.settings.api_key, "auto")
       return
     if Roles.userIsInRole(Meteor.user(), "admin")
       _.defer ->
-        Alerts.add 'Google Analytics Property is not configured. <a href="/dashboard/settings/google">Configure now</a> or <a href="/dashboard">disable the Google Analytics package</a>.', "danger",
+        Alerts.add 'Google Analytics Property is not configured. <a href="/dashboard/settings/googleAnalytics">Configure now</a> or <a href="/dashboard">disable the Google Analytics package</a>.', "danger",
           type: "ga-not-configured"
           dismissable: false # no close button
           html: true
@@ -19,6 +19,7 @@ Meteor.startup ->
       # If admin logged out, hide the alert
       Alerts.removeType "ga-not-configured"
 
+  # Need to make this more specific. Currently it triggers for any click on any page.
   $(document.body).click (e) ->
     $targets = $(e.target).closest("*[data-event-action]")
     $targets = $targets.parents("*[data-event-action]").add($targets)

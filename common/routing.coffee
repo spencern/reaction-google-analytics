@@ -1,11 +1,13 @@
 Router.map ->
-  @route 'dashboard/settings/google',
+  @route 'googleAnalytics',
     controller: ShopAdminController
-    path: 'dashboard/settings/google',
+    path: 'dashboard/settings/googleAnalytics'
     template: 'googleAnalytics'
 
-Router.onAfterAction ->
-  try
-    return ga("send", "pageview", Router.current().route.getName() ) #post iron:router 1.0.3
-  catch
-    return ga("send", "pageview", IronLocation.get().pathname )
+# Use onRun instead of afterAction so that tracking only happens once per page.
+# See: https://github.com/iron-meteor/iron-router/tree/0.9#custom-actions-and-hooks
+Router.onRun ->
+  trackingID = ReactionCore.Collections.Packages.findOne({name: "reaction-google-analytics"}).settings.api_key
+  # Check to make sure GA exists before triggering pageview sends.
+  if trackingID
+    ga("send", "pageview", Iron.Location.get().path ) # per https://github.com/iron-meteor/iron-router/issues/289

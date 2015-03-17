@@ -1,14 +1,8 @@
-SettingsFormSchema = new SimpleSchema
-  property:
-    type: String
-
 Template.googleAnalytics.helpers
-  packageConfig: ->
+  packageData: ->
     return ReactionCore.Collections.Packages.findOne name: "reaction-google-analytics"
-  formSchema: ->
-    return SettingsFormSchema
 
-AutoForm.hooks gaSettingsForm:
+AutoForm.hooks "ga-update-form":
   onSuccess: (operation, result, template) ->
     Alerts.removeType "ga-not-configured"
     Alerts.add "Google Analytics settings saved.", "success", type: "ga-settings"
