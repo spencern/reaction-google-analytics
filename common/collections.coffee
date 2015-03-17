@@ -9,7 +9,7 @@ ReactionCore.Collections.AnalyticsEvents = new Meteor.Collection "AnalyticsEvent
 ReactionCore.Schemas.GoogleAnalyticsPackageConfig = new SimpleSchema([
   ReactionCore.Schemas.PackageConfig
   {
-    "settings.api_key":
+    "settings.public.api_key":
       type: String
       label: "Tracking ID"
   }

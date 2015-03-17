@@ -5,8 +5,8 @@ Meteor.startup ->
       # data not loaded yet or package is disabled
       Alerts.removeType "ga-not-configured"
       return
-    if gAnalytics.settings.api_key
-      ga("create", gAnalytics.settings.api_key, "auto")
+    if gAnalytics.settings.public.api_key
+      ga("create", gAnalytics.settings.public.api_key, "auto")
       return
     if Roles.userIsInRole(Meteor.user(), "admin")
       _.defer ->

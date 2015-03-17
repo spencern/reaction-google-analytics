@@ -5,7 +5,7 @@
   <div class="row">
     <div class="well col-md-4">
       {{#autoForm collection="ReactionCore.Collections.Packages" schema="ReactionCore.Schemas.GoogleAnalyticsPackageConfig" doc=packageData type="update" id="ga-update-form"}}
-        {{>afQuickField name="settings.api_key" placeholder="UA-XXXXX-X"}}
+        {{>afQuickField name="settings.public.api_key" placeholder="UA-XXXXX-X"}}
         <button type="submit" class="btn btn-primary pull-right">Update</button>
       {{/autoForm}}
     </div>
