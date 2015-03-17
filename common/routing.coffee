@@ -12,4 +12,5 @@ Router.onRun ->
   # Check to make sure GA exists before triggering pageview sends.
   if trackingID
     ga("send", "pageview", Iron.Location.get().path ) # per https://github.com/iron-meteor/iron-router/issues/289
+    @next() #https://github.com/iron-meteor/iron-router/issues/1089
     return
