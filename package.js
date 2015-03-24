@@ -1,7 +1,7 @@
 Package.describe({
   summary: "Reaction Google Analytics - GA for Reaction Commece",
   name: "reactioncommerce:reaction-google-analytics",
-  version: "0.4.0",
+  version: "0.4.1",
   git: "https://github.com/ongoworks/reaction-google-analytics.git"
 });
 
@@ -10,7 +10,7 @@ Package.on_use(function (api, where) {
   api.use("meteor-platform@1.2.1");
   api.use("coffeescript");
   api.use("less");
-  api.use("reactioncommerce:core@0.5.0");
+  api.use("reactioncommerce:core@0.5.3");
 
   api.addFiles([
     "common/routing.coffee",
