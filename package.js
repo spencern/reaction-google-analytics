@@ -1,7 +1,7 @@
 Package.describe({
   summary: "Reaction Google Analytics - GA for Reaction Commece",
   name: "reactioncommerce:reaction-google-analytics",
-  version: "0.4.1",
+  version: "0.4.2",
   git: "https://github.com/ongoworks/reaction-google-analytics.git"
 });
 
